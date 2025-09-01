@@ -46,15 +46,16 @@
     <a href="index.html">Retour vers les boutons noirs</a>
 
     <script>
-        // Fonction pour initialiser l'état des icônes depuis localStorage
+        // Fonction pour initialiser l'état des icônes depuis les paramètres d'URL
         function initIcons() {
+            const params = new URLSearchParams(window.location.search);
+
             for (let i = 1; i <= 4; i++) {
-                const iconId = "btn-green" + i + " i";  // Sélecteur des icônes
-                const savedState = localStorage.getItem("btn-green" + i); // Récupération de l'état
+                const icon = document.querySelector(`#btn-green${i} i`); // Sélectionner l'icône
 
-                const icon = document.querySelector(iconId);  // Sélectionner l'icône spécifique
+                const savedState = params.get(`btn-green${i}`); // Récupérer l'état du bouton
 
-                if (icon) {  // Vérifie que l'élément existe avant de manipuler son classList
+                if (icon) {
                     if (savedState === "red") {
                         icon.classList.add("red-icon");
                         icon.classList.remove("green-icon");
@@ -63,20 +64,14 @@
                         icon.classList.remove("red-icon");
                     }
 
-                    console.log(`btn-green${i}: ${savedState}`);  // Débogage : affiche l'état du bouton
+                    // Débogage pour vérifier l'état
+                    console.log(`btn-green${i}: ${savedState}`);
                 }
             }
         }
 
         // Initialiser les icônes lorsque la page est complètement chargée
         window.onload = initIcons;
-
-        // Écouter les modifications de localStorage
-        window.addEventListener("storage", function(event) {
-            if (event.key && event.key.startsWith("btn-green")) {
-                initIcons();  // Rafraîchir les icônes lorsque le localStorage change
-            }
-        });
     </script>
 
 </body>
