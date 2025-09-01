@@ -43,7 +43,7 @@
     </button>
 
     <!-- Lien vers screen.html -->
-    <a href="screen.html">Voir les boutons verts</a>
+    <a id="goToScreen" href="screen.html">Voir les boutons verts</a>
 
     <script>
         // Fonction pour gérer les clics sur les boutons noirs
@@ -51,21 +51,20 @@
 
         btnBlack.forEach((button, index) => {
             button.addEventListener("click", () => {
-                // Enregistre l'état du bouton vert correspondant dans localStorage
-                const greenButtonIndex = index + 1;  // Calcul de l'index pour le bouton vert
-                const currentState = localStorage.getItem("btn-green" + greenButtonIndex);
+                // Mettre à jour l'état du bouton vert correspondant dans l'URL
+                const greenButtonIndex = index + 1; // Calcul de l'index pour le bouton vert
+                const currentState = new URLSearchParams(window.location.search).get(`btn-green${greenButtonIndex}`);
 
                 // Si l'icône est verte, la passer à rouge, sinon la remettre en vert
-                if (currentState === "green") {
-                    localStorage.setItem("btn-green" + greenButtonIndex, "red");
-                    console.log("btn-green" + greenButtonIndex + " devient rouge");  // Débogage
-                } else {
-                    localStorage.setItem("btn-green" + greenButtonIndex, "green");
-                    console.log("btn-green" + greenButtonIndex + " devient vert");  // Débogage
-                }
+                const newState = currentState === "green" ? "red" : "green";
 
-                // Vérifier les données dans localStorage
-                console.log("localStorage:", localStorage);  // Affiche le contenu de localStorage pour vérifier
+                // Ajouter ou modifier le paramètre d'URL
+                const currentParams = new URLSearchParams(window.location.search);
+                currentParams.set(`btn-green${greenButtonIndex}`, newState);
+                document.getElementById("goToScreen").href = "screen.html?" + currentParams.toString(); // Mettre à jour le lien vers screen.html
+
+                // Débogage pour vérifier l'URL
+                console.log("URL mise à jour :", window.location.href);
             });
         });
     </script>
