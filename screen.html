@@ -55,5 +55,27 @@
     <!-- Lien vers index.html pour voir les boutons noirs -->
     <a href="index.html">Retour vers les boutons noirs</a>
 
+    <script>
+        // Fonction pour initialiser l'état des icônes
+        function initIcons() {
+            // Pour chaque icône verte, on vérifie son état sauvegardé dans localStorage
+            for (let i = 1; i <= 4; i++) {
+                const iconId = "btn-green" + i;
+                const savedState = localStorage.getItem(iconId);
+
+                if (savedState === "red") {
+                    document.getElementById(iconId).querySelector("i").classList.add("red-icon");
+                    document.getElementById(iconId).querySelector("i").classList.remove("green-icon");
+                } else {
+                    document.getElementById(iconId).querySelector("i").classList.add("green-icon");
+                    document.getElementById(iconId).querySelector("i").classList.remove("red-icon");
+                }
+            }
+        }
+
+        // Initialiser les icônes quand la page est chargée
+        window.onload = initIcons;
+    </script>
+
 </body>
 </html>
