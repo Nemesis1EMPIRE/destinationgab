@@ -9,7 +9,7 @@
         body {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
             padding: 20px;
         }
 
@@ -20,7 +20,7 @@
             border: none;
             outline: none;
             cursor: pointer;
-            font-size: 25px;
+            font-size: 18px;
             margin: 10px;
         }
 
@@ -43,6 +43,13 @@
             margin-bottom: 20px;
             width: 300px;
         }
+
+        .display-text {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
@@ -50,68 +57,27 @@
     <!-- Barre de recherche -->
     <input type="text" id="search-bar" class="search-bar" placeholder="Tapez ici..." />
 
-    <!-- Boutons verts (initialement verts) -->
-    <button id="btn-green1" class="green-btn">
-        <i class="fas fa-user green-icon"></i> Ajouter un utilisateur
-    </button>
-    <button id="btn-green2" class="green-btn">
-        <i class="fas fa-user green-icon"></i> Modifier utilisateur
-    </button>
-    <button id="btn-green3" class="green-btn">
-        <i class="fas fa-user green-icon"></i> Supprimer utilisateur
-    </button>
-    <button id="btn-green4" class="green-btn">
-        <i class="fas fa-user green-icon"></i> Voir utilisateurs
-    </button>
+    <!-- Bouton pour afficher le texte -->
+    <button id="btn-display-text">Afficher le texte</button>
+
+    <!-- Texte affiché après le bouton -->
+    <div id="display-text" class="display-text"></div>
 
     <script>
-        // Fonction pour changer la couleur de l'icône (vert <-> rouge)
-        function toggleIconColor(greenBtn) {
-            const icon = greenBtn.querySelector("i");
-
-            if (icon.classList.contains("red-icon")) {
-                // Si l'icône est rouge, la remettre verte
-                icon.classList.remove("red-icon");
-                icon.classList.add("green-icon");
-            } else {
-                // Si l'icône est verte, la mettre rouge
-                icon.classList.remove("green-icon");
-                icon.classList.add("red-icon");
-            }
-        }
-
-        // Fonction pour remplacer le texte de la barre de recherche avec le texte du bouton
-        function replaceSearchBarText(button) {
+        // Fonction pour afficher le texte de la barre de recherche
+        function displayText() {
             const searchBar = document.getElementById("search-bar");
-            searchBar.value = button.textContent.trim(); // Remplace par le texte du bouton (sans espaces)
+            const displayTextDiv = document.getElementById("display-text");
+
+            // Remplacer le texte de la barre par celui de la div
+            displayTextDiv.textContent = searchBar.value;
+
+            // Effacer la barre de recherche
+            searchBar.value = '';
         }
 
-        // Sélectionner les boutons verts
-        const btnGreen1 = document.getElementById("btn-green1");
-        const btnGreen2 = document.getElementById("btn-green2");
-        const btnGreen3 = document.getElementById("btn-green3");
-        const btnGreen4 = document.getElementById("btn-green4");
-
-        // Ajouter les événements de clic pour chaque bouton vert
-        btnGreen1.addEventListener("click", function() {
-            toggleIconColor(btnGreen1);
-            replaceSearchBarText(btnGreen1); // Remplacer le texte de la barre de recherche
-        });
-
-        btnGreen2.addEventListener("click", function() {
-            toggleIconColor(btnGreen2);
-            replaceSearchBarText(btnGreen2); // Remplacer le texte de la barre de recherche
-        });
-
-        btnGreen3.addEventListener("click", function() {
-            toggleIconColor(btnGreen3);
-            replaceSearchBarText(btnGreen3); // Remplacer le texte de la barre de recherche
-        });
-
-        btnGreen4.addEventListener("click", function() {
-            toggleIconColor(btnGreen4);
-            replaceSearchBarText(btnGreen4); // Remplacer le texte de la barre de recherche
-        });
+        // Ajouter l'événement de clic pour le bouton
+        document.getElementById("btn-display-text").addEventListener("click", displayText);
     </script>
 
 </body>
