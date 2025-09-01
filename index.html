@@ -17,21 +17,37 @@
             cursor: pointer;
             font-size: 25px;
         }
+
         .green-icon {
             color: green; /* Applique la couleur verte à la deuxième icône */
-            margin-left: 150px; /* Espacement entre les deux icônes */
+            margin-left: 10px; /* Espacement entre les deux icônes */
+        }
+
+        .red-icon {
+            color: red; /* Applique la couleur rouge */
         }
     </style>
 </head>
 <body>
 
-    <button>
+    <button id="btn-black">
         <i class="fas fa-user"></i> 
     </button>
-      <button>
+    
+    <button id="btn-green">
         <i class="fas fa-user green-icon"></i>
     </button>
-    
+
+    <script>
+        // On sélectionne le bouton noir et l'icône verte
+        const btnBlack = document.getElementById("btn-black");
+        const greenIcon = document.querySelector(".green-icon");
+
+        // Fonction pour changer la couleur de l'icône verte en rouge
+        btnBlack.addEventListener("click", function() {
+            greenIcon.classList.toggle("red-icon");
+        });
+    </script>
 
 </body>
 </html>
