@@ -24,19 +24,6 @@
             margin: 10px;
         }
 
-        .green-icon {
-            color: green;
-        }
-
-        .red-icon {
-            color: red;
-        }
-
-        .green-btn {
-            color: green;
-            background-color: white;
-        }
-
         .search-bar {
             padding: 10px;
             font-size: 18px;
@@ -48,6 +35,9 @@
             font-size: 18px;
             margin-top: 20px;
             color: #333;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
         }
 
     </style>
@@ -60,20 +50,20 @@
     <!-- Bouton pour afficher le texte -->
     <button id="btn-display-text">Afficher le texte</button>
 
-    <!-- Texte affiché après le bouton -->
-    <div id="display-text" class="display-text"></div>
-
     <script>
-        // Fonction pour afficher le texte de la barre de recherche
+        // Fonction pour remplacer la barre de recherche par le texte
         function displayText() {
             const searchBar = document.getElementById("search-bar");
-            const displayTextDiv = document.getElementById("display-text");
+            const searchText = searchBar.value;
 
-            // Remplacer le texte de la barre par celui de la div
-            displayTextDiv.textContent = searchBar.value;
+            // Créer un élément div pour afficher le texte
+            const displayTextDiv = document.createElement("div");
+            displayTextDiv.classList.add("display-text");
+            displayTextDiv.setAttribute("contenteditable", "true"); // Permet de modifier le texte
+            displayTextDiv.textContent = searchText; // Mettre le texte de la barre de recherche dans la div
 
-            // Effacer la barre de recherche
-            searchBar.value = '';
+            // Remplacer la barre de recherche par la nouvelle div
+            searchBar.replaceWith(displayTextDiv);
         }
 
         // Ajouter l'événement de clic pour le bouton
