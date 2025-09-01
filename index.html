@@ -17,53 +17,52 @@
             margin: 10px;
         }
 
-        .black-btn {
-            color: black;
-            background-color: white;
+        .green-icon {
+            color: green;
         }
 
-        .green-btn {
-            color: green;
-            background-color: white;
+        .red-icon {
+            color: red;
         }
     </style>
 </head>
 <body>
 
     <!-- Boutons noirs -->
-    <button id="btn-black1" class="black-btn">
-        <i class="fas fa-user"></i> 
+    <button id="btn-black1" class="btn-black">
+        <i class="fas fa-user"></i>
     </button>
-    <button id="btn-black2" class="black-btn">
-        <i class="fas fa-user"></i> 
+    <button id="btn-black2" class="btn-black">
+        <i class="fas fa-user"></i>
     </button>
-    <button id="btn-black3" class="black-btn">
-        <i class="fas fa-user"></i> 
+    <button id="btn-black3" class="btn-black">
+        <i class="fas fa-user"></i>
     </button>
-    <button id="btn-black4" class="black-btn">
-        <i class="fas fa-user"></i> 
+    <button id="btn-black4" class="btn-black">
+        <i class="fas fa-user"></i>
     </button>
 
-    <!-- Lien vers screen.html pour voir les boutons verts -->
-    <a href="screen.html">Aller vers les boutons verts</a>
+    <!-- Lien vers screen.html -->
+    <a href="screen.html">Voir les boutons verts</a>
 
     <script>
-        // Fonction pour sauvegarder l'état des boutons verts
-        function toggleGreenButtonState(greenBtnId) {
-            const savedState = localStorage.getItem(greenBtnId);
+        // Fonction pour gérer les clics sur les boutons noirs
+        const btnBlack = document.querySelectorAll(".btn-black");
 
-            if (savedState === "green") {
-                localStorage.setItem(greenBtnId, "red");
-            } else {
-                localStorage.setItem(greenBtnId, "green");
-            }
-        }
+        btnBlack.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                // Mettre à jour localStorage pour le bouton correspondant
+                const greenButtonIndex = index + 1;
+                const currentState = localStorage.getItem("btn-green" + greenButtonIndex);
 
-        // Ajouter les événements de clic pour chaque bouton noir
-        document.getElementById("btn-black1").addEventListener("click", function() { toggleGreenButtonState("btn-green1"); });
-        document.getElementById("btn-black2").addEventListener("click", function() { toggleGreenButtonState("btn-green2"); });
-        document.getElementById("btn-black3").addEventListener("click", function() { toggleGreenButtonState("btn-green3"); });
-        document.getElementById("btn-black4").addEventListener("click", function() { toggleGreenButtonState("btn-green4"); });
+                // Si l'icône est verte, la passer à rouge, sinon la remettre en vert
+                if (currentState === "green") {
+                    localStorage.setItem("btn-green" + greenButtonIndex, "red");
+                } else {
+                    localStorage.setItem("btn-green" + greenButtonIndex, "green");
+                }
+            });
+        });
     </script>
 
 </body>
