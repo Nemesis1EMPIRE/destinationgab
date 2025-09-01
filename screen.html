@@ -70,8 +70,9 @@
         // Initialiser les icônes quand la page est chargée
         window.onload = initIcons;
 
-        // Écouter les changements dans le localStorage
+        // Vérifier régulièrement si l'état dans localStorage change (p. ex. via une autre page)
         window.addEventListener("storage", function(event) {
+            // Vérifie si la clé modifiée est liée à l'un des boutons
             if (event.key && event.key.startsWith("btn-green")) {
                 initIcons();  // Rafraîchir les icônes lorsque le localStorage change
             }
