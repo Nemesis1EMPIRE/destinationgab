@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutons Utilisateur</title>
+    <title>Boutons Utilisateur avec Barre de Recherche</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             display: flex;
-            justify-content: flex-end; /* Aligner les boutons sur la droite */
+            flex-direction: column;
+            align-items: flex-end;
             padding: 20px;
         }
+
         button {
             display: flex;
             align-items: center;
@@ -35,22 +37,31 @@
             background-color: white;
         }
 
+        .search-bar {
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Barre de recherche -->
+    <input type="text" id="search-bar" class="search-bar" placeholder="Tapez ici..." />
+
     <!-- Boutons verts (initialement verts) -->
     <button id="btn-green1" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
+        <i class="fas fa-user green-icon"></i> Ajouter un utilisateur
     </button>
     <button id="btn-green2" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
+        <i class="fas fa-user green-icon"></i> Modifier utilisateur
     </button>
     <button id="btn-green3" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
+        <i class="fas fa-user green-icon"></i> Supprimer utilisateur
     </button>
     <button id="btn-green4" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
+        <i class="fas fa-user green-icon"></i> Voir utilisateurs
     </button>
 
     <script>
@@ -69,6 +80,12 @@
             }
         }
 
+        // Fonction pour remplacer le texte de la barre de recherche avec le texte du bouton
+        function replaceSearchBarText(button) {
+            const searchBar = document.getElementById("search-bar");
+            searchBar.value = button.textContent.trim(); // Remplace par le texte du bouton (sans espaces)
+        }
+
         // Sélectionner les boutons verts
         const btnGreen1 = document.getElementById("btn-green1");
         const btnGreen2 = document.getElementById("btn-green2");
@@ -76,10 +93,25 @@
         const btnGreen4 = document.getElementById("btn-green4");
 
         // Ajouter les événements de clic pour chaque bouton vert
-        btnGreen1.addEventListener("click", function() { toggleIconColor(btnGreen1); });
-        btnGreen2.addEventListener("click", function() { toggleIconColor(btnGreen2); });
-        btnGreen3.addEventListener("click", function() { toggleIconColor(btnGreen3); });
-        btnGreen4.addEventListener("click", function() { toggleIconColor(btnGreen4); });
+        btnGreen1.addEventListener("click", function() {
+            toggleIconColor(btnGreen1);
+            replaceSearchBarText(btnGreen1); // Remplacer le texte de la barre de recherche
+        });
+
+        btnGreen2.addEventListener("click", function() {
+            toggleIconColor(btnGreen2);
+            replaceSearchBarText(btnGreen2); // Remplacer le texte de la barre de recherche
+        });
+
+        btnGreen3.addEventListener("click", function() {
+            toggleIconColor(btnGreen3);
+            replaceSearchBarText(btnGreen3); // Remplacer le texte de la barre de recherche
+        });
+
+        btnGreen4.addEventListener("click", function() {
+            toggleIconColor(btnGreen4);
+            replaceSearchBarText(btnGreen4); // Remplacer le texte de la barre de recherche
+        });
     </script>
 
 </body>
