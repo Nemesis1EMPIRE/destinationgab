@@ -24,16 +24,6 @@
         .red-icon {
             color: red;
         }
-
-        .black-btn {
-            color: black;
-            background-color: white;
-        }
-
-        .green-btn {
-            color: green;
-            background-color: white;
-        }
     </style>
 </head>
 <body>
@@ -56,13 +46,13 @@
     <a href="index.html">Retour vers les boutons noirs</a>
 
     <script>
-        // Fonction pour initialiser l'état des icônes depuis localStorage
+        // Fonction pour initialiser l'état des boutons verts
         function initIcons() {
             for (let i = 1; i <= 4; i++) {
-                const iconId = "btn-green" + i;
-                const savedState = localStorage.getItem(iconId);
+                const iconId = "btn-green" + i + " i";
+                const savedState = localStorage.getItem("btn-green" + i);
 
-                const icon = document.querySelector(`#${iconId} i`);
+                const icon = document.querySelector(iconId);
                 if (savedState === "red") {
                     icon.classList.add("red-icon");
                     icon.classList.remove("green-icon");
