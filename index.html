@@ -13,23 +13,38 @@
             padding: 10px;
         }
 
+        /* Bouton DESTINATION */
+        #btn-display-text {
+            font-size: 36px; /* Taille réduite du texte */
+            padding: 15px 30px; /* Réduire le padding */
+            background-color: #4CAF50; /* Couleur de fond */
+            color: white; /* Texte blanc */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+
+        /* Boutons d'icônes */
         button {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
+            padding: 20px 40px; /* Augmenter la taille des boutons */
             border: none;
             outline: none;
             cursor: pointer;
-            font-size: 88px;
+            font-size: 48px; /* Augmenter la taille du texte */
             margin: 10px;
         }
 
         .green-icon {
             color: green;
+            font-size: 36px; /* Augmenter la taille des icônes */
         }
 
         .red-icon {
             color: red;
+            font-size: 36px; /* Augmenter la taille des icônes */
         }
 
         .green-btn {
@@ -38,32 +53,33 @@
         }
 
         .search-bar {
-            padding: 10px;
-            font-size: 108px;
+            padding: 15px;
+            font-size: 36px; /* Augmenter la taille du texte de la barre de recherche */
             margin-bottom: 20px;
-            
+            width: 400px;
         }
 
         .display-text {
-            font-size: 108px;
+            font-size: 36px; /* Augmenter la taille du texte affiché */
             margin-top: 20px;
             color: #333;
             border: 1px solid #ccc;
             padding: 10px;
-        
+            width: 400px;
+            text-align: center;
+            display: inline-block;
         }
 
         .button-container {
             display: flex;
-            justify-content: space-between; /* Align buttons horizontally with space between */
-            width: 100%; /* Ensure buttons fit horizontally */
-            max-width: 600px; /* Optional: To limit the width */
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
         }
 
         .button-container button {
-            margin: 0 10px; /* Adjust margin for spacing between buttons */
+            margin: 0 10px;
         }
-
     </style>
 </head>
 <body>
@@ -90,7 +106,7 @@
         </button>
     </div>
 
-    <script> 
+    <script>
         // Fonction pour remplacer la barre de recherche par le texte
         function displayText() {
             const searchBar = document.getElementById("search-bar");
@@ -108,7 +124,6 @@
 
         // Ajouter l'événement de clic pour le bouton de texte
         document.getElementById("btn-display-text").addEventListener("click", displayText);
-
 
         // Fonction pour changer la couleur de l'icône (vert <-> rouge)
         function toggleIconColor(greenBtn) {
