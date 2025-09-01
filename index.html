@@ -51,16 +51,21 @@
 
         btnBlack.forEach((button, index) => {
             button.addEventListener("click", () => {
-                // Mettre à jour localStorage pour le bouton correspondant
-                const greenButtonIndex = index + 1;
+                // Enregistre l'état du bouton vert correspondant dans localStorage
+                const greenButtonIndex = index + 1;  // Calcul de l'index pour le bouton vert
                 const currentState = localStorage.getItem("btn-green" + greenButtonIndex);
 
                 // Si l'icône est verte, la passer à rouge, sinon la remettre en vert
                 if (currentState === "green") {
                     localStorage.setItem("btn-green" + greenButtonIndex, "red");
+                    console.log("btn-green" + greenButtonIndex + " devient rouge");  // Débogage
                 } else {
                     localStorage.setItem("btn-green" + greenButtonIndex, "green");
+                    console.log("btn-green" + greenButtonIndex + " devient vert");  // Débogage
                 }
+
+                // Vérifier les données dans localStorage
+                console.log("localStorage:", localStorage);  // Affiche le contenu de localStorage pour vérifier
             });
         });
     </script>
