@@ -29,16 +29,16 @@
 <body>
 
     <!-- Boutons verts -->
-    <button id="btn-green1" class="green-btn">
+    <button id="btn-green1">
         <i class="fas fa-user green-icon"></i>
     </button>
-    <button id="btn-green2" class="green-btn">
+    <button id="btn-green2">
         <i class="fas fa-user green-icon"></i>
     </button>
-    <button id="btn-green3" class="green-btn">
+    <button id="btn-green3">
         <i class="fas fa-user green-icon"></i>
     </button>
-    <button id="btn-green4" class="green-btn">
+    <button id="btn-green4">
         <i class="fas fa-user green-icon"></i>
     </button>
 
@@ -62,6 +62,8 @@
                         icon.classList.add("green-icon");
                         icon.classList.remove("red-icon");
                     }
+
+                    console.log(`btn-green${i}: ${savedState}`);  // Débogage : affiche l'état du bouton
                 }
             }
         }
