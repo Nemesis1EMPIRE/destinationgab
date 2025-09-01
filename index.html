@@ -65,12 +65,16 @@
     <script>
         // Fonction pour changer la couleur des boutons
         function toggleButtonColor(blackBtn, greenBtn) {
+            // Le bouton noir devient vert
             blackBtn.classList.remove("black-btn");
             blackBtn.classList.add("green-btn");
             blackBtn.querySelector("i").classList.add("green-icon");
+            
+            // Le bouton vert devient rouge
             greenBtn.classList.remove("green-btn");
             greenBtn.classList.add("black-btn");
             greenBtn.querySelector("i").classList.remove("green-icon");
+            greenBtn.querySelector("i").classList.add("red-icon");
         }
 
         // Sélectionner les boutons
