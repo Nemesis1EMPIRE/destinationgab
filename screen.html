@@ -46,14 +46,11 @@
     <a href="index.html">Retour vers les boutons noirs</a>
 
     <script>
-        // Fonction pour initialiser l'état des icônes depuis les paramètres d'URL
+        // Fonction pour initialiser l'état des icônes depuis sessionStorage
         function initIcons() {
-            const params = new URLSearchParams(window.location.search);
-
             for (let i = 1; i <= 4; i++) {
                 const icon = document.querySelector(`#btn-green${i} i`); // Sélectionner l'icône
-
-                const savedState = params.get(`btn-green${i}`); // Récupérer l'état du bouton
+                const savedState = sessionStorage.getItem(`btn-green${i}`); // Récupérer l'état du bouton
 
                 if (icon) {
                     if (savedState === "red") {
@@ -63,9 +60,6 @@
                         icon.classList.add("green-icon");
                         icon.classList.remove("red-icon");
                     }
-
-                    // Débogage pour vérifier l'état
-                    console.log(`btn-green${i}: ${savedState}`);
                 }
             }
         }
