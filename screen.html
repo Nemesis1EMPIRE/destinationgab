@@ -42,12 +42,11 @@
         <i class="fas fa-user green-icon"></i>
     </button>
 
-    <!-- Lien vers index.html pour voir les boutons noirs -->
+    <!-- Lien vers index.html -->
     <a href="index.html">Retour vers les boutons noirs</a>
 
-    <!-- Script placé juste avant la fermeture de body -->
     <script>
-        // Fonction pour initialiser l'état des icônes
+        // Fonction pour initialiser l'état des icônes depuis localStorage
         function initIcons() {
             for (let i = 1; i <= 4; i++) {
                 const iconId = "btn-green" + i + " i";  // Sélecteur des icônes
@@ -67,16 +66,16 @@
             }
         }
 
-        // Initialiser les icônes quand la page est chargée
+        // Initialiser les icônes lorsque la page est complètement chargée
         window.onload = initIcons;
 
-        // Vérifier régulièrement si l'état dans localStorage change (p. ex. via une autre page)
+        // Écouter les modifications de localStorage
         window.addEventListener("storage", function(event) {
-            // Vérifie si la clé modifiée est liée à l'un des boutons
             if (event.key && event.key.startsWith("btn-green")) {
                 initIcons();  // Rafraîchir les icônes lorsque le localStorage change
             }
         });
     </script>
+
 </body>
 </html>
