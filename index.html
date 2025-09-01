@@ -53,35 +53,42 @@
             width: 300px;
         }
 
-        .green-btn {
-            background-color: white;
-            color: green;
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Align buttons horizontally with space between */
+            width: 100%; /* Ensure buttons fit horizontally */
+            max-width: 600px; /* Optional: To limit the width */
+        }
+
+        .button-container button {
+            margin: 0 10px; /* Adjust margin for spacing between buttons */
         }
 
     </style>
 </head>
 <body>
-     <!-- Bouton pour afficher le texte -->
+
+    <!-- Bouton pour afficher le texte -->
     <button id="btn-display-text">Destination</button>
+
     <!-- Barre de recherche -->
     <input type="text" id="search-bar" class="search-bar" placeholder="Tapez ici..." />
 
-    <!-- Boutons verts (initialement verts) -->
-    <button id="btn-green1" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
-    </button>
-    <button id="btn-green2" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
-    </button>
-    <button id="btn-green3" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
-    </button>
-    <button id="btn-green4" class="green-btn">
-        <i class="fas fa-user green-icon"></i>
-    </button>
-
-
-   
+    <!-- Conteneur des boutons verts (alignés sur la même ligne) -->
+    <div class="button-container">
+        <button id="btn-green1" class="green-btn">
+            <i class="fas fa-user green-icon"></i>
+        </button>
+        <button id="btn-green2" class="green-btn">
+            <i class="fas fa-user green-icon"></i>
+        </button>
+        <button id="btn-green3" class="green-btn">
+            <i class="fas fa-user green-icon"></i>
+        </button>
+        <button id="btn-green4" class="green-btn">
+            <i class="fas fa-user green-icon"></i>
+        </button>
+    </div>
 
     <script>
         // Fonction pour remplacer la barre de recherche par le texte
@@ -102,7 +109,7 @@
         // Ajouter l'événement de clic pour le bouton de texte
         document.getElementById("btn-display-text").addEventListener("click", displayText);
 
-               // Fonction pour changer la couleur de l'icône (vert <-> rouge)
+        // Fonction pour changer la couleur de l'icône (vert <-> rouge)
         function toggleIconColor(greenBtn) {
             const icon = greenBtn.querySelector("i");
 
