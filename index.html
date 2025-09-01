@@ -49,31 +49,32 @@
 
     <script>
         // Fonction pour changer la couleur de l'icône
-        function toggleIconColor(blackBtn, greenBtn) {
-            const icon = greenBtn.querySelector("i");
-
+        function toggleIconColor(blackBtn, iconId) {
+            const icon = document.getElementById(iconId);
             if (icon.classList.contains("red-icon")) {
                 // Si l'icône est rouge, la remettre verte
                 icon.classList.remove("red-icon");
                 icon.classList.add("green-icon");
+                localStorage.setItem(iconId, "green");
             } else {
                 // Si l'icône est verte, la mettre rouge
                 icon.classList.remove("green-icon");
                 icon.classList.add("red-icon");
+                localStorage.setItem(iconId, "red");
             }
         }
 
-        // Sélectionner les boutons
+        // Sélectionner les boutons noirs
         const btnBlack1 = document.getElementById("btn-black1");
         const btnBlack2 = document.getElementById("btn-black2");
         const btnBlack3 = document.getElementById("btn-black3");
         const btnBlack4 = document.getElementById("btn-black4");
 
         // Ajouter les événements de clic pour chaque bouton noir
-        btnBlack1.addEventListener("click", function() { toggleIconColor(btnBlack1, window.opener.document.getElementById("btn-green1")); });
-        btnBlack2.addEventListener("click", function() { toggleIconColor(btnBlack2, window.opener.document.getElementById("btn-green2")); });
-        btnBlack3.addEventListener("click", function() { toggleIconColor(btnBlack3, window.opener.document.getElementById("btn-green3")); });
-        btnBlack4.addEventListener("click", function() { toggleIconColor(btnBlack4, window.opener.document.getElementById("btn-green4")); });
+        btnBlack1.addEventListener("click", function() { toggleIconColor(btnBlack1, "btn-green1"); });
+        btnBlack2.addEventListener("click", function() { toggleIconColor(btnBlack2, "btn-green2"); });
+        btnBlack3.addEventListener("click", function() { toggleIconColor(btnBlack3, "btn-green3"); });
+        btnBlack4.addEventListener("click", function() { toggleIconColor(btnBlack4, "btn-green4"); });
     </script>
 
 </body>
