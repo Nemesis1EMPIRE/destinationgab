@@ -50,10 +50,11 @@
         // Fonction pour initialiser l'état des icônes
         function initIcons() {
             for (let i = 1; i <= 4; i++) {
-                const iconId = "btn-green" + i + " i";
-                const savedState = localStorage.getItem("btn-green" + i);
+                const iconId = "btn-green" + i + " i";  // Sélecteur des icônes
+                const savedState = localStorage.getItem("btn-green" + i); // Récupération de l'état
 
-                const icon = document.querySelector(iconId);
+                const icon = document.querySelector(iconId);  // Sélectionner l'icône spécifique
+
                 if (icon) {  // Vérifie que l'élément existe avant de manipuler son classList
                     if (savedState === "red") {
                         icon.classList.add("red-icon");
@@ -68,6 +69,13 @@
 
         // Initialiser les icônes quand la page est chargée
         window.onload = initIcons;
+
+        // Écouter les changements dans le localStorage
+        window.addEventListener("storage", function(event) {
+            if (event.key && event.key.startsWith("btn-green")) {
+                initIcons();  // Rafraîchir les icônes lorsque le localStorage change
+            }
+        });
     </script>
 </body>
 </html>
