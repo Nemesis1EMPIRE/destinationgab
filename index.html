@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Boutons Utilisateur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 25px;
+            margin: 10px;
+        }
+
+        .black-btn {
+            color: black;
+            background-color: white;
+        }
+
+        .green-btn {
+            color: green;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Boutons noirs -->
+    <button id="btn-black1" class="black-btn">
+        <i class="fas fa-user"></i> 
+    </button>
+    <button id="btn-black2" class="black-btn">
+        <i class="fas fa-user"></i> 
+    </button>
+    <button id="btn-black3" class="black-btn">
+        <i class="fas fa-user"></i> 
+    </button>
+    <button id="btn-black4" class="black-btn">
+        <i class="fas fa-user"></i> 
+    </button>
+
+    <!-- Lien vers screen.html pour voir les boutons verts -->
+    <a href="screen.html">Aller vers les boutons verts</a>
+
+    <script>
+        // Fonction pour changer la couleur de l'icône
+        function toggleIconColor(blackBtn, greenBtn) {
+            const icon = greenBtn.querySelector("i");
+
+            if (icon.classList.contains("red-icon")) {
+                // Si l'icône est rouge, la remettre verte
+                icon.classList.remove("red-icon");
+                icon.classList.add("green-icon");
+            } else {
+                // Si l'icône est verte, la mettre rouge
+                icon.classList.remove("green-icon");
+                icon.classList.add("red-icon");
+            }
+        }
+
+        // Sélectionner les boutons
+        const btnBlack1 = document.getElementById("btn-black1");
+        const btnBlack2 = document.getElementById("btn-black2");
+        const btnBlack3 = document.getElementById("btn-black3");
+        const btnBlack4 = document.getElementById("btn-black4");
+
+        // Ajouter les événements de clic pour chaque bouton noir
+        btnBlack1.addEventListener("click", function() { toggleIconColor(btnBlack1, window.opener.document.getElementById("btn-green1")); });
+        btnBlack2.addEventListener("click", function() { toggleIconColor(btnBlack2, window.opener.document.getElementById("btn-green2")); });
+        btnBlack3.addEventListener("click", function() { toggleIconColor(btnBlack3, window.opener.document.getElementById("btn-green3")); });
+        btnBlack4.addEventListener("click", function() { toggleIconColor(btnBlack4, window.opener.document.getElementById("btn-green4")); });
+    </script>
+
+</body>
+</html>
