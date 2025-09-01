@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index - Boutons Utilisateur</title>
+    <title>Boutons Utilisateur</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         button {
@@ -24,43 +24,57 @@
         .red-icon {
             color: red;
         }
+
+        .green-btn {
+            color: green;
+            background-color: white;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Boutons noirs -->
-    <button id="btn-black1" class="btn-black">
-        <i class="fas fa-user"></i>
+    <!-- Boutons verts (initialement verts) -->
+    <button id="btn-green1" class="green-btn">
+        <i class="fas fa-user green-icon"></i>
     </button>
-    <button id="btn-black2" class="btn-black">
-        <i class="fas fa-user"></i>
+    <button id="btn-green2" class="green-btn">
+        <i class="fas fa-user green-icon"></i>
     </button>
-    <button id="btn-black3" class="btn-black">
-        <i class="fas fa-user"></i>
+    <button id="btn-green3" class="green-btn">
+        <i class="fas fa-user green-icon"></i>
     </button>
-    <button id="btn-black4" class="btn-black">
-        <i class="fas fa-user"></i>
+    <button id="btn-green4" class="green-btn">
+        <i class="fas fa-user green-icon"></i>
     </button>
-
-    <!-- Lien vers screen.html -->
-    <a href="screen.html">Voir les boutons verts</a>
 
     <script>
-        // Fonction pour gérer les clics sur les boutons noirs
-        const btnBlack = document.querySelectorAll(".btn-black");
+        // Fonction pour changer la couleur de l'icône (vert <-> rouge)
+        function toggleIconColor(greenBtn) {
+            const icon = greenBtn.querySelector("i");
 
-        btnBlack.forEach((button, index) => {
-            button.addEventListener("click", () => {
-                const greenButtonIndex = index + 1; // Calcul de l'index pour le bouton vert
-                const currentState = sessionStorage.getItem(`btn-green${greenButtonIndex}`);
+            if (icon.classList.contains("red-icon")) {
+                // Si l'icône est rouge, la remettre verte
+                icon.classList.remove("red-icon");
+                icon.classList.add("green-icon");
+            } else {
+                // Si l'icône est verte, la mettre rouge
+                icon.classList.remove("green-icon");
+                icon.classList.add("red-icon");
+            }
+        }
 
-                // Si l'icône est verte, la passer à rouge, sinon la remettre en vert
-                const newState = currentState === "green" ? "red" : "green";
+        // Sélectionner les boutons verts
+        const btnGreen1 = document.getElementById("btn-green1");
+        const btnGreen2 = document.getElementById("btn-green2");
+        const btnGreen3 = document.getElementById("btn-green3");
+        const btnGreen4 = document.getElementById("btn-green4");
 
-                // Mettre à jour l'état dans sessionStorage
-                sessionStorage.setItem(`btn-green${greenButtonIndex}`, newState);
-            });
-        });
+        // Ajouter les événements de clic pour chaque bouton vert
+        btnGreen1.addEventListener("click", function() { toggleIconColor(btnGreen1); });
+        btnGreen2.addEventListener("click", function() { toggleIconColor(btnGreen2); });
+        btnGreen3.addEventListener("click", function() { toggleIconColor(btnGreen3); });
+        btnGreen4.addEventListener("click", function() { toggleIconColor(btnGreen4); });
     </script>
 
 </body>
