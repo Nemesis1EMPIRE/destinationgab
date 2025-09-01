@@ -53,11 +53,6 @@
             width: 300px;
         }
 
-        .black-btn {
-            background-color: black;
-            color: white;
-        }
-
         .green-btn {
             background-color: white;
             color: green;
@@ -66,28 +61,12 @@
     </style>
 </head>
 <body>
-
+     <!-- Bouton pour afficher le texte -->
+    <button id="btn-display-text">Destination</button>
     <!-- Barre de recherche -->
     <input type="text" id="search-bar" class="search-bar" placeholder="Tapez ici..." />
 
-    <!-- Bouton pour afficher le texte -->
-    <button id="btn-display-text">Afficher le texte</button>
-
-    <!-- Boutons utilisateur -->
-    <button id="btn-black1" class="black-btn">
-        <i class="fas fa-user"></i> 
-    </button>
-    <button id="btn-black2" class="black-btn">
-        <i class="fas fa-user"></i> 
-    </button>
-    <button id="btn-black3" class="black-btn">
-        <i class="fas fa-user"></i> 
-    </button>
-    <button id="btn-black4" class="black-btn">
-        <i class="fas fa-user"></i> 
-    </button>
-
-    <!-- Boutons verts -->
+    <!-- Boutons verts (initialement verts) -->
     <button id="btn-green1" class="green-btn">
         <i class="fas fa-user green-icon"></i>
     </button>
@@ -100,6 +79,9 @@
     <button id="btn-green4" class="green-btn">
         <i class="fas fa-user green-icon"></i>
     </button>
+
+
+   
 
     <script>
         // Fonction pour remplacer la barre de recherche par le texte
@@ -120,8 +102,8 @@
         // Ajouter l'événement de clic pour le bouton de texte
         document.getElementById("btn-display-text").addEventListener("click", displayText);
 
-        // Fonction pour changer l'icône verte en rouge
-        function toggleIconColor(blackBtn, greenBtn) {
+               // Fonction pour changer la couleur de l'icône (vert <-> rouge)
+        function toggleIconColor(greenBtn) {
             const icon = greenBtn.querySelector("i");
 
             if (icon.classList.contains("red-icon")) {
@@ -135,22 +117,17 @@
             }
         }
 
-        // Sélectionner les boutons
-        const btnBlack1 = document.getElementById("btn-black1");
-        const btnBlack2 = document.getElementById("btn-black2");
-        const btnBlack3 = document.getElementById("btn-black3");
-        const btnBlack4 = document.getElementById("btn-black4");
-
+        // Sélectionner les boutons verts
         const btnGreen1 = document.getElementById("btn-green1");
         const btnGreen2 = document.getElementById("btn-green2");
         const btnGreen3 = document.getElementById("btn-green3");
         const btnGreen4 = document.getElementById("btn-green4");
 
-        // Ajouter les événements de clic pour chaque bouton noir
-        btnBlack1.addEventListener("click", function() { toggleIconColor(btnBlack1, btnGreen1); });
-        btnBlack2.addEventListener("click", function() { toggleIconColor(btnBlack2, btnGreen2); });
-        btnBlack3.addEventListener("click", function() { toggleIconColor(btnBlack3, btnGreen3); });
-        btnBlack4.addEventListener("click", function() { toggleIconColor(btnBlack4, btnGreen4); });
+        // Ajouter les événements de clic pour chaque bouton vert
+        btnGreen1.addEventListener("click", function() { toggleIconColor(btnGreen1); });
+        btnGreen2.addEventListener("click", function() { toggleIconColor(btnGreen2); });
+        btnGreen3.addEventListener("click", function() { toggleIconColor(btnGreen3); });
+        btnGreen4.addEventListener("click", function() { toggleIconColor(btnGreen4); });
     </script>
 
 </body>
