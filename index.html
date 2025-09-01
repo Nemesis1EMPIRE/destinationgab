@@ -67,12 +67,19 @@
     </button>
 
     <script>
-        // Fonction pour changer l'icône verte en rouge quand le bouton noir est cliqué
+        // Fonction pour changer la couleur de l'icône
         function toggleIconColor(blackBtn, greenBtn) {
-            // Lorsque le bouton noir est cliqué, l'icône du bouton vert devient rouge
             const icon = greenBtn.querySelector("i");
-            icon.classList.remove("green-icon");
-            icon.classList.add("red-icon");
+
+            if (icon.classList.contains("red-icon")) {
+                // Si l'icône est rouge, la remettre verte
+                icon.classList.remove("red-icon");
+                icon.classList.add("green-icon");
+            } else {
+                // Si l'icône est verte, la mettre rouge
+                icon.classList.remove("green-icon");
+                icon.classList.add("red-icon");
+            }
         }
 
         // Sélectionner les boutons
