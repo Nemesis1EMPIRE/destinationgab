@@ -3,155 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DestinationGab</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>CV - MABAYI KONDJA Jérémie Daniel Amour</title>
     <style>
+        /* Styles pour le CV */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
         body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            position: relative;
+        }
+        
+        /* En-tête */
+        .header {
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .name-title {
+            margin-bottom: 15px;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #3498db;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        /* Profil professionnel */
+        .profile-text {
+            text-align: justify;
+            font-size: 14px;
+        }
+        
+        /* Formation */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .education-institution {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .education-date {
+            font-size: 13px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        /* Certifications */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        
+        .cert-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            font-size: 13px;
+        }
+        
+        /* Compétences */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            margin-bottom: 10px;
+        }
+        
+        .skill-category h4 {
+            font-size: 15px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+            font-size: 13px;
+        }
+        
+        .skill-list li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .skill-list li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Langues */
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .language-item {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 10px;
+            font-size: 14px;
         }
-
-        /* Bouton DESTINATION */
-        #btn-display-text {
-            font-size: 36px; /* Taille réduite du texte */
-            padding: 15px 30px; /* Réduire le padding */
-            background-color: #4CAF50; /* Couleur de fond */
-            color: white; /* Texte blanc */
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 20px 0;
+        
+        .language-name {
+            font-weight: 600;
         }
-
-        /* Boutons d'icônes */
-        button {
+        
+        .language-level {
+            color: #555;
+        }
+        
+        /* Atouts */
+        .qualities {
             display: flex;
-            align-items: center;
-            padding: 20px 40px; /* Augmenter la taille des boutons */
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: 48px; /* Augmenter la taille du texte */
-            margin: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-
-        .green-icon {
-            color: green;
-            font-size: 36px; /* Augmenter la taille des icônes */
+        
+        .quality-item {
+            background: #e8f4fc;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #d1ecf1;
         }
-
-        .red-icon {
-            color: red;
-            font-size: 36px; /* Augmenter la taille des icônes */
-        }
-
-        .green-btn {
-            color: green;
-            background-color: white;
-        }
-
-        .search-bar {
-            padding: 15px;
-            font-size: 36px; /* Augmenter la taille du texte de la barre de recherche */
-            margin-bottom: 20px;
-            width: 400px;
-        }
-
-        .display-text {
-            font-size: 36px; /* Augmenter la taille du texte affiché */
-            margin-top: 20px;
-            color: #333;
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 400px;
+        
+        /* Pied de page */
+        .footer {
             text-align: center;
-            display: inline-block;
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
         }
-
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 800px;
+        
+        /* Responsive */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            .no-print {
+                display: none;
+            }
         }
-
-        .button-container button {
-            margin: 0 10px;
+        
+        @media screen and (max-width: 768px) {
+            .cv-container {
+                padding: 15px;
+            }
+            
+            .certifications, .skills-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Bouton pour afficher le texte -->
-    <button id="btn-display-text">DESTINATION</button>
-
-    <!-- Barre de recherche -->
-    <input type="text" id="search-bar" class="search-bar" placeholder="Tapez ici..." />
-
-    <!-- Conteneur des boutons verts (alignés sur la même ligne) -->
-    <div class="button-container">
-        <button id="btn-green1" class="green-btn">
-            <i class="fas fa-user green-icon"></i>
-        </button>
-        <button id="btn-green2" class="green-btn">
-            <i class="fas fa-user green-icon"></i>
-        </button>
-        <button id="btn-green3" class="green-btn">
-            <i class="fas fa-user green-icon"></i>
-        </button>
-        <button id="btn-green4" class="green-btn">
-            <i class="fas fa-user green-icon"></i>
-        </button>
+    <div class="cv-container">
+        <!-- En-tête -->
+        <div class="header">
+            <div class="name-title">
+                <div class="name">MABAYI KONDJA Jérémie Daniel Amour</div>
+                <div class="title">Informaticien / Cybersécurité</div>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Akanda, Gabon</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>074 67 58 14</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>062 12 77 08 (WhatsApp)</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <span>jeremiednl@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>GitHub: https://github.com/repos</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profil professionnel -->
+        <div class="section">
+            <div class="section-title">Profil professionnel</div>
+            <p class="profile-text">
+                Informaticien de niveau intermédiaire, orienté cybersécurité et développement informatique. Formé aux standards internationaux via Cisco Networking Academy, avec de solides compétences en sécurité informatique, programmation Python et développement web fullstack. Motivé, rigoureux et en constante montée en compétences, je souhaite contribuer à la sécurisation et à la modernisation des systèmes informatiques.
+            </p>
+        </div>
+        
+        <!-- Formation académique -->
+        <div class="section">
+            <div class="section-title">Formation académique</div>
+            <div class="education-item">
+                <div class="education-title">Cybersécurité</div>
+                <div class="education-institution">Université Numérique du Gabon</div>
+                <div class="education-date">2025 – 2026 (en cours)</div>
+            </div>
+            <div class="education-item">
+                <div class="education-title">Institut National des Sciences de Gestion</div>
+                <div class="education-date">2021 – 2024</div>
+            </div>
+        </div>
+        
+        <!-- Certifications -->
+        <div class="section">
+            <div class="section-title">Certifications professionnelles (Cisco / OpenEDG – NetAcad)</div>
+            <div class="certifications">
+                <div class="cert-item">Cisco Certified Support Technician – Cybersecurity (2026)</div>
+                <div class="cert-item">Cisco Certified Cybersecurity Associate (2026)</div>
+                <div class="cert-item">Cisco Certificate in Ethical Hacking (2026)</div>
+                <div class="cert-item">PCEP – Certified Entry-Level Python Programmer (2026)</div>
+                <div class="cert-item">PCAP – Certified Associate Python Programmer (2026)</div>
+                <div class="cert-item">OpenEDG Digital Literacy (2026)</div>
+                <div class="cert-item">WDA – Certified Associate Web Developer (2026)</div>
+                <div class="cert-item">English for IT – B1 (GSE 36–49) (2026)</div>
+            </div>
+        </div>
+        
+        <!-- Compétences techniques -->
+        <div class="section">
+            <div class="section-title">Compétences techniques</div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Informatique & Sécurité</h4>
+                    <ul class="skill-list">
+                        <li>Cybersécurité (niveau intermédiaire)</li>
+                        <li>Ethical Hacking (bases)</li>
+                        <li>Sécurité des systèmes et réseaux</li>
+                        <li>Intelligence artificielle (niveau intermédiaire)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Développement</h4>
+                    <ul class="skill-list">
+                        <li>Développement web et logiciel fullstack</li>
+                        <li>Programmation Python</li>
+                        <li>Conception et maintenance d'applications web</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Bureautique & Création</h4>
+                    <ul class="skill-list">
+                        <li>Microsoft Word : intermédiaire</li>
+                        <li>Microsoft Excel : intermédiaire</li>
+                        <li>Microsoft PowerPoint : intermédiaire</li>
+                        <li>Canva : intermédiaire</li>
+                        <li>Photoshop : débutant</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Autres compétences</h4>
+                    <ul class="skill-list">
+                        <li>Comptabilité : débutant</li>
+                        <li>Marketing : débutant</li>
+                        <li>Management des organisations : débutant</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Langues -->
+        <div class="section">
+            <div class="section-title">Langues</div>
+            <div class="languages">
+                <div class="language-item">
+                    <span class="language-name">Français</span>
+                    <span class="language-level">Excellent</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Anglais</span>
+                    <span class="language-level">Intermédiaire</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Espagnol</span>
+                    <span class="language-level">Débutant</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Italien</span>
+                    <span class="language-level">Débutant</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Atouts personnels -->
+        <div class="section">
+            <div class="section-title">Atouts personnels</div>
+            <div class="qualities">
+                <div class="quality-item">Capacité d'apprentissage rapide</div>
+                <div class="quality-item">Sens de l'analyse et de la sécurité</div>
+                <div class="quality-item">Autonomie et rigueur</div>
+                <div class="quality-item">Intérêt pour les nouvelles technologies</div>
+            </div>
+        </div>
+        
+        <!-- Pied de page -->
+        <div class="footer">
+            <p>CV généré le <span id="current-date"></span></p>
+            <p class="no-print">Pour imprimer ce CV, utilisez la fonction d'impression de votre navigateur (CTRL+P)</p>
+        </div>
     </div>
 
     <script>
-        // Fonction pour remplacer la barre de recherche par le texte
-        function displayText() {
-            const searchBar = document.getElementById("search-bar");
-            const searchText = searchBar.value;
-
-            // Créer un élément div pour afficher le texte
-            const displayTextDiv = document.createElement("div");
-            displayTextDiv.classList.add("display-text");
-            displayTextDiv.setAttribute("contenteditable", "true"); // Permet de modifier le texte
-            displayTextDiv.textContent = searchText; // Mettre le texte de la barre de recherche dans la div
-
-            // Remplacer la barre de recherche par la nouvelle div
-            searchBar.replaceWith(displayTextDiv);
-        }
-
-        // Ajouter l'événement de clic pour le bouton de texte
-        document.getElementById("btn-display-text").addEventListener("click", displayText);
-
-        // Fonction pour changer la couleur de l'icône (vert <-> rouge)
-        function toggleIconColor(greenBtn) {
-            const icon = greenBtn.querySelector("i");
-
-            if (icon.classList.contains("red-icon")) {
-                // Si l'icône est rouge, la remettre verte
-                icon.classList.remove("red-icon");
-                icon.classList.add("green-icon");
-            } else {
-                // Si l'icône est verte, la mettre rouge
-                icon.classList.remove("green-icon");
-                icon.classList.add("red-icon");
-            }
-        }
-
-        // Sélectionner les boutons verts
-        const btnGreen1 = document.getElementById("btn-green1");
-        const btnGreen2 = document.getElementById("btn-green2");
-        const btnGreen3 = document.getElementById("btn-green3");
-        const btnGreen4 = document.getElementById("btn-green4");
-
-        // Ajouter les événements de clic pour chaque bouton vert
-        btnGreen1.addEventListener("click", function() { toggleIconColor(btnGreen1); });
-        btnGreen2.addEventListener("click", function() { toggleIconColor(btnGreen2); });
-        btnGreen3.addEventListener("click", function() { toggleIconColor(btnGreen3); });
-        btnGreen4.addEventListener("click", function() { toggleIconColor(btnGreen4); });
+        // Ajouter la date actuelle
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+        
+        // Instructions pour impression
+        console.log("Pour générer un PDF :");
+        console.log("1. Cliquez sur Fichier > Imprimer (ou CTRL+P)");
+        console.log("2. Sélectionnez 'Enregistrer au format PDF' comme imprimante");
+        console.log("3. Ajustez les marges à 'Aucune' ou 'Minimales'");
+        console.log("4. Cochez 'Arrière-plan graphique' pour inclure les couleurs");
+        console.log("5. Cliquez sur Enregistrer");
     </script>
-
 </body>
 </html>
